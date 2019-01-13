@@ -17,7 +17,7 @@ void BatchNormEngine<InoutType, StatType>::Forward(const InoutMat& in, const Sta
     assert(in.GetNumRows() == m_inOutT.GetNumElements());
     assert(out.GetNumRows() == m_inOutT.GetNumElements());
     assert(in.GetNumCols() == out.GetNumCols());
-    assert(std::isfinite(expAvgFactor) && (0 <= expAvgFactor && expAvgFactor <= 1));
+    assert(std::isfinite(expAvgFactor) && (0 <= expAvgFactor && expAvgFactor <= 5));
     assert(std::isfinite(blendFactor) && (0 <= blendFactor && blendFactor <= 1));
     // In inference mode, must only use running statistics
     assert(!inferenceOnly || ((expAvgFactor == 0.0) && (blendFactor == 1.0)));
